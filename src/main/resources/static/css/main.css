@@ -1,0 +1,162 @@
+@font-face {
+    font-family: jbFont;
+    src: url(../fonts/junglebook.ttf);
+}
+body {
+    background-color: #78c5e7;
+    font-family: arial, serif;
+    font-size: 14px;
+    margin: 0;
+}
+html, body, form, div#container {
+    height: 100%;
+    margin-bottom: 0;
+}
+div#container {
+    background-color: #7aa7c9;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+label, input {
+    min-width: 100px;
+}
+label {
+    display: inline-block;
+}
+h1 {
+    text-transform: capitalize;
+    text-align: center;
+    font-family: jbFont, serif;
+    font-size: 106px;
+    color: #403562;
+    margin: 0;
+}
+h2 {
+    font-size: 14px;
+    text-transform: capitalize;
+    margin: 0;
+}
+div.panel {
+    background-color: #ddd;
+    opacity: .8;
+    border: 1px solid #aaa;
+    margin: 3px;
+    padding: 6px;
+}
+a.button, .customFileUpload {
+    background-color: #79bbff;
+    border: 1px solid #84bbf3;
+    display: inline-block;
+    color: #fff;
+    height: 20px;
+    width: 100px;
+    padding-top: 3px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #528ecc;
+}
+a.button:hover, a.button:focus {
+    background: #378de5;
+}
+input[type="file"] {
+    display: none;
+}
+span#templateFileName {
+    background-color: #fff;
+    height: 20px;
+    padding-left: 0;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+/*tabs*/
+#wrapper {
+    margin: auto;
+    width: 520px;
+    height: 420px;
+    padding: 2px;
+    border: 1px solid #000;
+    background: url(../gfx/bg1_trans.png) no-repeat;
+}
+#wrapper2 {
+    margin: auto;
+    width: 520px;
+    height: 420px;
+    padding: 2px;
+    border: 1px solid #000;
+    background: url(../gfx/bg2_trans.png) no-repeat;
+    display: none;
+}
+ul.tabs {
+    list-style-type: none;
+    margin: 3px;
+    padding: 0;
+}
+ul.tabs li {
+    border: gray solid 1px;
+    border-bottom: none;
+    float: left;
+    margin: 0 .25em 0 0;
+    padding: .25em .5em;
+}
+ul.tabs li a {
+    font-weight: bold;
+    text-decoration: none;
+}
+ul.tabs li.active {
+    background: gray;
+}
+ul.tabs li.active a {
+    color: #fff;
+}
+span, label, h2, ul.tabs li a {
+    color: #444;
+}
+.clr {
+    clear: both;
+}
+ul#attachedJobs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul#attachedJobs li input[type=checkbox] {
+    margin-left: -42px;
+    margin-right: 0;
+    padding-right: 0;
+    display: none;
+}
+ul#attachedJobs li label {
+    margin-left: 0; /*-40px;*/
+    margin-top: -2px;
+}
+article {
+    border-top: gray solid 1px;
+}
+
+/*autocomplete*/
+.autocomplete-suggestions {
+    border: 1px solid #999;
+    background: #fff;
+    overflow: auto;
+}
+.autocomplete-suggestion {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.autocomplete-selected {
+    background: #f0f0f0;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #3399ff;
+}
+.autocomplete-group {
+    padding: 2px 5px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
