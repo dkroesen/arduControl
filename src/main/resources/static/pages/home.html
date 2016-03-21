@@ -1,0 +1,49 @@
+
+    <button class="btn btn-lg btn-default" ng-click="discover.doClick(item, $event)">Discover devices</button>
+    <br/>
+    <div ng-if="discover.fromServer">
+
+        <div class="page-header">
+            <h1>Discover</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <th>location</th>
+            <th>name</th>
+            <th>save</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="device in discover.fromServer">
+                <td>{{device}}</td>
+                <td></td>
+                <td><button class="btn btn-xs btn-success" aria-label="Save Device" ng-click="discover.saveDevice(device)">Save Device</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+
+    <div class="page-header">
+        <h1>Stored Devices</h1>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <th>location</th>
+        <th>name</th>
+        <th>description</th>
+        <th>connect</th>
+        <th>remove</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="device in devices.list">
+            <td>{{device.deviceId}}</td>
+            <td>{{device.deviceName}}</td>
+            <td>{{device.description}}</td>
+            <td>
+                <button class="btn btn-xs btn-primary" ng-click="devices.connectDevice(device.deviceName)" aria-label="Connect Device">Connect</button>
+            </td>
+            <td><button class="btn btn-xs btn-danger" ng-click="devices.removeDevice(device.deviceName)" aria-label="Remove Device">Remove</button></td>
+        </tr>
+        </tbody>
+    </table>

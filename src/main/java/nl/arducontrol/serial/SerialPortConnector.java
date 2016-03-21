@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author ericjbruno
@@ -77,6 +78,20 @@ public class SerialPortConnector implements SerialPortEventListener {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public List<String> discover() {
+        final Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
+        final List<String> comPorts = new ArrayList<>();
+        // Enumerate system ports and try connecting to Arduino over each
+        //
+        while (portEnum.hasMoreElements()) {
+            // Iterate through your host computer's serial port IDs
+            //
+            final CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
+            comPorts.add(currPortId.getName());
+        }
+        return comPorts;
     }
 
     public void sendData(String data) {

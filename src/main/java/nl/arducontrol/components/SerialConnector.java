@@ -5,6 +5,9 @@ import nl.arducontrol.serial.SerialPortConnector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Set;
+
 @Component
 public class SerialConnector {
 
@@ -44,6 +47,10 @@ public class SerialConnector {
     public boolean disconnect(){
         serialPortConnector.close();
         return true;
+    }
+
+    public List<String> discover(){
+        return serialPortConnector.discover();
     }
 
 }

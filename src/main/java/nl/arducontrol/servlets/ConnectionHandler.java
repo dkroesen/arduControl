@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @RequestMapping("/rest/connection")
 @RestController
@@ -37,6 +40,20 @@ public class ConnectionHandler {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE}, path = "/discover/{type}")
+    public ResponseEntity<String> discover(final @PathVariable("type") String type) {
+        try {
+            List<String> devices = new ArrayList<>();
+            if(type.equals("usb")) {
+                devices = serialConnector.discover();
+            }
+            return new ResponseEntity<>(JsonResponseHelper.createJsonResponse(devices), HttpStatus.OK);
+        } catch(Throwable e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE}, path = "/disconnect")
     public ResponseEntity<String> disconnect() {
